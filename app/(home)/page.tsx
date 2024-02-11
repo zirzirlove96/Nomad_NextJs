@@ -5,9 +5,9 @@ export const metadata = {
 };
 
 async function getMovies() {
-  /*await new Promise((response) => {
+  await new Promise((response) => {
     setTimeout(response, 5000);
-  });*/ // 백엔드에서 5초 대기
+  }); // 백엔드에서 5초 대기
 
   const response = await fetch(URL);
   const json = await response.json();

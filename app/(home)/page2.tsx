@@ -1,3 +1,5 @@
+//client component에서 fetch
+
 "use client";
 import { useEffect, useState } from "react";
 
