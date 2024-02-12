@@ -1,4 +1,6 @@
-const URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
+import Link from "next/link";
+
+export const URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
 
 export const metadata = {
   title: "HOME",
@@ -6,7 +8,7 @@ export const metadata = {
 
 async function getMovies() {
   await new Promise((response) => {
-    setTimeout(response, 5000);
+    setTimeout(response, 2000);
   }); // 백엔드에서 5초 대기
 
   const response = await fetch(URL);
@@ -16,5 +18,14 @@ async function getMovies() {
 
 export default async function HomePage() {
   const movies = await getMovies();
-  return JSON.stringify(movies);
+  //return JSON.stringify(movies);
+  return (
+    <div>
+      {movies.map((movie) => (
+        <li key={movie.id}>
+          <Link href={`/movie/${movie.id}`}>{movie.title}</Link>
+        </li>
+      ))}
+    </div>
+  );
 }
