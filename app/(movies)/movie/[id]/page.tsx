@@ -14,9 +14,9 @@ export default async function MovieDetail({
   //const [movie, videos] = await Promise.all([getMovie(id), getVideos(id)]);
   return (
     <div>
-      <Suspense fallback={<h1>Loading movie info</h1>}>
+      {/* <Suspense fallback={<h1>Loading movie info</h1>}>
         <MovieVideos id={id} />
-      </Suspense>
+      </Suspense> */}
       <Suspense fallback={<h1>Loading videos info</h1>}>
         <MovieInfo id={id} />
       </Suspense>
