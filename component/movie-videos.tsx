@@ -1,5 +1,5 @@
 import { URL } from "../app/(home)/page";
-import styles from "../style.movie-videos.module.css";
+import styles from "../style/movie-videos.module.css";
 
 async function getVideos(id: string) {
   console.log(`videos fetch : ${Date.now()}`);
@@ -14,7 +14,6 @@ async function getVideos(id: string) {
 export default async function MovieVideos({ id }: { id: string }) {
   const videos = await getVideos(id);
   //return <h6>{JSON.stringify(videos)}</h6>;
-  //console.log(videos);
   return (
     <div className={styles.container}>
       {videos.map((video) => (

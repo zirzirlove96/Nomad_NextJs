@@ -2,12 +2,7 @@ import Link from "next/link";
 import { URL } from "../app/(home)/page";
 import styles from "../style/movie-info.module.css";
 
-async function getMovie(id: string) {
-  console.log(`movie fetch : ${Date.now()}`);
-  // await new Promise((response) => {
-  //   setTimeout(response, 3000);
-  // });
-
+export async function getMovie(id: string) {
   const reponse = await fetch(`${URL}/${id}`);
   return reponse.json();
 }
@@ -15,7 +10,6 @@ async function getMovie(id: string) {
 export default async function MovieInfo({ id }: { id: string }) {
   const movie = await getMovie(id);
   //return <h6>{JSON.stringify(movie)}</h6>;
-  console.log(movie);
   return (
     <div className={styles.container}>
       <img src={movie.poster_path} className={styles.poster}></img>
